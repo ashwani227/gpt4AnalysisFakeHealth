@@ -6,7 +6,7 @@ import time
 from dotenv import load_dotenv
 load_dotenv()
 
-openai.organization = "org-EV9FFMQ9dOPFnlDlIsJwaP6i"
+openai.organization = os.getenv("OPENAI_ORG_ID")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def getGPTOutput(gpt_prompt):

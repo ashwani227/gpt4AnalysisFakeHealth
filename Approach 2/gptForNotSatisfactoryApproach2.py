@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import math
 load_dotenv()
 
-openai.organization = "org-EV9FFMQ9dOPFnlDlIsJwaP6i"
+openai.organization = os.getenv("OPENAI_ORG_ID")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 excel_file_path = 'C:/Users/ashwa/Desktop/llm/FakeHealth/FakeHealthNewsFullSet.xlsx'
