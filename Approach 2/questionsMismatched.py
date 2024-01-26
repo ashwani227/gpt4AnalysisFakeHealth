@@ -2,8 +2,9 @@ import pandas as pd
 import json
 import os
 # Specify the path to your JSON file
-json_file_path = 'mismatched.json'
-question_based_file = 'mismatchedQuestions.json'
+script_directory = os.path.dirname(os.path.abspath(__file__))
+json_file_path = os.path.join(script_directory, '../Output Data/mismatched.json')
+question_based_file = os.path.join(script_directory, '../Output Data/mismatchedQuestions.json')
 # json_file_path = 'matched.json'
 # question_based_file = 'matchedQuestions.json'
 

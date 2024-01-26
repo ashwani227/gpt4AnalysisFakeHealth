@@ -9,7 +9,10 @@ load_dotenv()
 openai.organization = os.getenv("OPENAI_ORG_ID")
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-excel_file_path = 'C:/Users/ashwa/Desktop/llm/FakeHealth/FakeHealthNewsFullSet.xlsx'
+script_directory = os.path.dirname(os.path.abspath(__file__))
+
+# Appending the relative path to the Excel file
+excel_file_path = os.path.join(script_directory, '../Output Data/FakeHealthNewsFullSet.xlsx')
 
 def getGPTOutput(gpt_prompt):
     message=[{"role": "user", "content": gpt_prompt}]

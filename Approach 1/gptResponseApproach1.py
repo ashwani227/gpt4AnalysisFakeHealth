@@ -2,9 +2,10 @@ import json
 import openai
 import pandas as pd
 import os
-import time
 from dotenv import load_dotenv
 load_dotenv()
+
+script_directory = os.path.dirname(os.path.abspath(__file__))
 
 openai.organization = os.getenv("OPENAI_ORG_ID")
 openai.api_key = os.getenv("OPENAI_API_KEY")
@@ -18,9 +19,10 @@ def getGPTOutput(gpt_prompt):
         frequency_penalty=0.0)
     return response['choices'][0]['message']['content']
 
-json_file_path = 'C:/Users/ashwa/Desktop/llm/FakeHealth/dataset/reviews/HealthRelease.json'
-file_path = 'C:/Users/ashwa/Desktop/llm/FakeHealth/FakeHealthRelease.xlsx'
-folder_path = 'C:/Users/ashwa/Desktop/llm/FakeHealth/dataset/content/HealthRelease'
+json_file_path = os.path.join(script_directory, '../../dataset/HealthRelease.json')
+file_path = os.path.join(script_directory, '../Output Data/FakeHealthRelease.xlsx')
+folder_path = os.path.join(script_directory, '../../dataset/HealthRelease')
+
 # Read the Excel file into a pandas DataFrame
 with open(json_file_path, 'r') as json_file:
     json_data = json.load(json_file)

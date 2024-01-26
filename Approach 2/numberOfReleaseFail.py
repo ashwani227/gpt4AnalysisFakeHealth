@@ -2,10 +2,11 @@ import pandas as pd
 import json
 import os
 # Specify the path to your JSON file
-json_file_path = 'mismatched.json'
-question_based_file = 'numberOfReleaseFail.json'
-# json_file_path = 'matched.json'
-# question_based_file = 'matchedQuestions.json'
+script_directory = os.path.dirname(os.path.abspath(__file__))
+# Appending the relative path to the Excel file
+json_file_path = os.path.join(script_directory, '../Output Data/mismatched.json')
+question_based_file = os.path.join(script_directory, '../Output Data/numberOfReleaseFail.json')
+
 
 with open(json_file_path, 'r') as file:
     json_data = json.load(file)
